@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, rgba(65, 18, 82, 1), rgba(218, 184, 222, 1));
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            max-width: 450px;
+            width: 90%;
+            display: none;
+            position: absolute;
+            z-index: 20;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            color: #e60073;
+            font-size: 26px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+
+        .gift-box {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #ff4b4b, #ff6f6f);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 20px rgba(255, 75, 75, 0.7);
+            animation: pulse 2s infinite;
+            z-index: 15;
+        }
+
+        .gift-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 75, 75, 1);
+        }
+
+        .gift-lid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #d93636;
+            border-radius: 10px 10px 0 0;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .gift-ribbon {
+            position: absolute;
+            top: 25%;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: #fff;
+        }
+
+        .gift-box.open .gift-lid {
+            transform: translateY(-70px) rotate(-20deg);
+        }
+
+        .gift-box.open~.container {
+            display: block;
+        }
+
+        .heart-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: pink;
+            transform: rotate(-45deg);
+            animation: floatUp 5s infinite ease-in-out, heartbeat 1s infinite;
+            opacity: 0;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: pink;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: 10px;
+            top: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: floatParticles 4s infinite ease-in-out;
+            opacity: 0.5;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(50px) scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .gift-box {
+            animation: slideIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 75, 75, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(255, 75, 75, 1);
+            }
+
+            100% {
+                box-shadow: 0 0 10px rgba(255, 75, 75, 0.4);
+            }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(-45deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(-45deg);
+            }
+
+            50% {
+                transform: scale(1.2) rotate(-45deg);
+            }
+        }
+
+        @keyframes floatParticles {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gift-box" onclick="openGift()">
+        <div class="gift-lid"></div>
+        <div class="gift-ribbon"></div>
+    </div>
+
+    <div class="container">
+        <h1>Surpresa para Você</h1>
+        <p>Não consigo descrever o quanto sou grato por termos nos conhecido. Mesmo que tenha sido de forma virtual,
+            ainda valorizo demais isso, porque você apareceu no momento em que eu mais precisava de alguém, e esse alguém
+            foi você. É incrível como você consegue alegrar meus dias, até mesmo os mais difíceis. Eu adoro quando a
+            gente joga junto, mesmo quando perdemos algumas vezes, adoro nossos gostos inusitados e, principalmente, as
+            fotos zuadas/fofas que você manda 💞. Você me faz rir, e pensar em você me tira um sorriso sincero. Amo ver
+            as fotos dos gatinhos e amo ainda mais te conhecer a cada dia. Te amo muito Isa ❤.</p><br>
+        <p>Feliz Ano Novo!</p>
+    </div>
+
+    <div class="heart-container"></div>
+
+    <script>
+        function openGift() {
+            document.querySelector('.gift-box').classList.toggle('open');
+            createHearts();
+            createParticles();
+        }
+
+        function createHearts() {
+            const heartContainer = document.querySelector('.heart-container');
+            for (let i = 0; i < 10; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDelay = `${Math.random() * 2}s`;
+                heart.style.bottom = `${Math.random() * 50 + 50}%`;
+                heartContainer.appendChild(heart);
+            }
+        }
+
+        function createParticles() {
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 2}s`;
+                document.body.appendChild(particle);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
