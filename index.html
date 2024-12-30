@@ -18,25 +18,27 @@
             text-align: center;
             overflow: hidden;
             position: relative;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .container {
             background-color: rgba(255, 255, 255, 0.95);
-            padding: 40px 20px;
+            padding: 25px 20px;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
-            width: 90%;
+            max-width: 90%;
+            width: 400px;
             display: none;
-            position: absolute;
-            z-index: 20;
+            position: relative;
             animation: fadeIn 2s ease-in-out;
+            margin-top: 20px; /* Garantir espaçamento entre as mensagens */
         }
 
         h1 {
             color: #e60073;
-            font-size: 26px;
-            margin-bottom: 20px;
+            font-size: 28px;
+            margin-bottom: 15px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
         }
 
@@ -48,20 +50,31 @@
             font-weight: bold;
         }
 
+        /* Responsividade para telas menores */
         @media (max-width: 600px) {
             h1 {
-                font-size: 22px;
+                font-size: 24px;
             }
 
             p {
                 font-size: 16px;
             }
+
+            .container {
+                width: 90%; /* Aumenta a largura da caixa em telas menores */
+                padding: 20px;
+            }
+
+            .gift-box {
+                width: 120px; /* Ajusta o tamanho da caixa do presente */
+                height: 120px;
+            }
         }
 
         .gift-box {
             position: relative;
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             background: linear-gradient(135deg, #ff4b4b, #ff6f6f);
             border-radius: 10px;
             cursor: pointer;
@@ -139,22 +152,34 @@
         <div class="gift-ribbon"></div>
     </div>
 
-    <div class="container">
-        <h1>Surpresa para Você</h1>
+    <div class="container" id="message-1">
+        <h1>Para Você</h1>
         <p>Não consigo descrever o quanto sou grato por termos nos conhecido. Mesmo que tenha sido de forma virtual,
             ainda valorizo demais isso, porque você apareceu no momento em que eu mais precisava de alguém, e esse alguém
             foi você. É incrível como você consegue alegrar meus dias, até mesmo os mais difíceis. Eu adoro quando a
-            gente joga junto, mesmo quando perdemos algumas vezes, adoro nossos gostos estranhos e, principalmente, as
-            fotos zuadas/fofas que você manda 💞. Você me faz rir, e pensar em você me tira um sorriso sincero. Amo ver
+            gente joga junto, mesmo quando perdemos algumas vezes.</p>
+    </div>
+
+    <div class="container" id="message-2">
+        <p>Adoro nossos gostos estranhos e, principalmente, as fotos zuadas/fofas que você manda 💞. Você me faz rir, e pensar em você me tira um sorriso sincero. Amo ver
             as fotos dos gatinhos e amo ainda mais te conhecer a cada dia. Te amo muito Isa ❤. E desculpa certas ações e 
             atitudes minhas, fiquei mt tempo sem essas trocas de msg frequente e contato com os outros, mas to tentando melhorar,
-            por mais que não pareça.</p><br>
-        <p>Feliz Ano Novo!</p>
+            por mais que não pareça.</p>
     </div>
 
     <script>
         function openGift() {
-            document.querySelector('.gift-box').classList.toggle('open');
+            const giftBox = document.querySelector('.gift-box');
+            giftBox.classList.add('open');
+            
+            // Exibe as mensagens com delay
+            setTimeout(() => {
+                document.getElementById('message-1').style.display = 'block';
+            }, 500);
+
+            setTimeout(() => {
+                document.getElementById('message-2').style.display = 'block';
+            }, 1500);
         }
     </script>
 
