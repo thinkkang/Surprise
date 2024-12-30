@@ -22,10 +22,10 @@
 
         .container {
             background-color: rgba(255, 255, 255, 0.95);
-            padding: 30px;
+            padding: 20px;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            max-width: 450px;
+            max-width: 400px;
             width: 90%;
             display: none;
             position: absolute;
@@ -35,33 +35,22 @@
 
         h1 {
             color: #e60073;
-            font-size: 26px;
+            font-size: 22px;
             margin-bottom: 20px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
         }
 
         p {
-            font-size: 18px;
-            line-height: 1.8;
+            font-size: 16px;
+            line-height: 1.5;
             color: #333;
-            font-family: Arial, Helvetica, sans-serif;
             font-weight: bold;
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 22px;
-            }
-
-            p {
-                font-size: 16px;
-            }
         }
 
         .gift-box {
             position: relative;
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             background: linear-gradient(135deg, #ff4b4b, #ff6f6f);
             border-radius: 10px;
             cursor: pointer;
@@ -81,7 +70,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 50px;
+            height: 40px;
             background-color: #d93636;
             border-radius: 10px 10px 0 0;
             transition: transform 0.5s ease-in-out;
@@ -116,8 +105,8 @@
 
         .heart {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             background-color: pink;
             transform: rotate(-45deg);
             animation: floatUp 5s infinite ease-in-out, heartbeat 1s infinite;
@@ -128,107 +117,55 @@
         .heart:after {
             content: "";
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             background-color: pink;
             border-radius: 50%;
         }
 
         .heart:before {
-            top: -10px;
+            top: -7px;
             left: 0;
         }
 
         .heart:after {
-            left: 10px;
+            left: 7px;
             top: 0;
         }
 
-        .particle {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #fff;
-            border-radius: 50%;
-            animation: floatParticles 4s infinite ease-in-out;
-            opacity: 0.5;
-        }
-
-        @keyframes slideIn {
-            0% {
-                transform: translateY(50px) scale(0.8);
-                opacity: 0;
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+                max-width: 350px;
             }
 
-            100% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
-        }
-
-        .gift-box {
-            animation: slideIn 1.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+            h1 {
+                font-size: 20px;
             }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 10px rgba(255, 75, 75, 0.4);
+            p {
+                font-size: 14px;
+                line-height: 1.4;
             }
 
-            50% {
-                box-shadow: 0 0 25px rgba(255, 75, 75, 1);
+            .gift-box {
+                width: 100px;
+                height: 100px;
             }
 
-            100% {
-                box-shadow: 0 0 10px rgba(255, 75, 75, 0.4);
-            }
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) rotate(-45deg);
-                opacity: 1;
+            .gift-lid {
+                height: 35px;
             }
 
-            100% {
-                transform: translateY(-100vh) rotate(-45deg);
-                opacity: 0;
-            }
-        }
-
-        @keyframes heartbeat {
-
-            0%,
-            100% {
-                transform: scale(1) rotate(-45deg);
+            .heart {
+                width: 12px;
+                height: 12px;
             }
 
-            50% {
-                transform: scale(1.2) rotate(-45deg);
-            }
-        }
-
-        @keyframes floatParticles {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 0.5;
-            }
-
-            100% {
-                transform: translateY(-100vh) scale(0.5);
-                opacity: 0;
+            .heart:before,
+            .heart:after {
+                width: 12px;
+                height: 12px;
             }
         }
     </style>
@@ -243,14 +180,7 @@
 
     <div class="container">
         <h1>Surpresa para Você</h1>
-        <p>Não consigo descrever o quanto sou grato por termos nos conhecido. Mesmo que tenha sido de forma virtual,
-            ainda valorizo demais isso, porque você apareceu no momento em que eu mais precisava de alguém, e esse alguém
-            foi você. É incrível como você consegue alegrar meus dias, até mesmo os mais difíceis. Eu adoro quando a
-            gente joga junto, mesmo quando perdemos algumas vezes, adoro nossos gostos estranhos e, principalmente, as
-            fotos zuadas/fofas que você manda 💞. Você me faz rir, e pensar em você me tira um sorriso sincero. Amo ver
-            as fotos dos gatinhos e amo ainda mais te conhecer a cada dia. Te amo muito Isa ❤. E desculpa certas ações e 
-            atitudes minhas, fiquei mt tempo sem essas trocas de msg frequente e contato com os outros, mas to tentando melhorar,
-            por mais que não pareça.</p><br>
+        <p>Não consigo descrever o quanto sou grato por termos nos conhecido...</p>
         <p>Feliz Ano Novo!</p>
     </div>
 
