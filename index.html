@@ -13,14 +13,15 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
+            /* Centraliza o conteúdo verticalmente */
             height: 100vh;
             text-align: center;
-            overflow-y: auto; /* Permite rolagem vertical */
+            overflow-y: auto;
             position: relative;
             flex-direction: column;
             gap: 20px;
-            padding-bottom: 20px; /* Espaço extra no fundo */
+            padding-bottom: 20px;
         }
 
         .container {
@@ -33,7 +34,7 @@
             display: none;
             position: relative;
             animation: fadeIn 2s ease-in-out;
-            margin-bottom: 20px; /* Espaçamento entre as caixas */
+            margin-bottom: 20px;
         }
 
         h1 {
@@ -71,7 +72,8 @@
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 0 20px rgba(255, 75, 75, 0.7);
             animation: pulse 2s infinite;
-            margin-bottom: 30px; /* Espaço para separação entre o presente e a primeira caixa */
+            z-index: 10;
+            /* Garante que o presente fique acima das outras caixas */
         }
 
         .gift-box:hover {
@@ -145,20 +147,24 @@
     <div class="container" id="message-1">
         <h1>Para Você</h1>
         <p>Não consigo descrever o quanto sou grato por termos nos conhecido. Mesmo que tenha sido de forma virtual,
-            ainda valorizo demais isso, porque você apareceu no momento em que eu mais precisava de alguém, e esse alguém
+            ainda valorizo demais isso, porque você apareceu no momento em que eu mais precisava de alguém, e esse
+            alguém
             foi você. É incrível como você consegue alegrar meus dias, até mesmo os mais difíceis. Eu adoro quando a
             gente joga junto, mesmo quando perdemos algumas vezes.</p>
     </div>
 
     <div class="container" id="message-2">
-        <p>Adoro nossos gostos estranhos e, principalmente, as fotos zuadas/fofas que você manda 💞. Você me faz rir, e pensar em você me tira um sorriso sincero. Amo ver as fotos dos gatinhos e amo ainda mais te conhecer a cada dia. Te amo muito Isa ❤. E desculpa certas ações e atitudes minhas, fiquei mt tempo sem essas trocas de msg frequente e contato com os outros, mas to tentando melhorar, por mais que não pareça.</p>
+        <p>Adoro nossos gostos estranhos e, principalmente, as fotos zuadas/fofas que você manda 💞. Você me faz rir, e
+            pensar em você me tira um sorriso sincero. Amo ver as fotos dos gatinhos e amo ainda mais te conhecer a cada
+            dia. Te amo muito Isa ❤. E desculpa certas ações e atitudes minhas, fiquei mt tempo sem essas trocas de msg
+            frequente e contato com os outros, mas to tentando melhorar, por mais que não pareça.</p>
     </div>
 
     <script>
         function openGift() {
             const giftBox = document.querySelector('.gift-box');
             giftBox.classList.add('open');
-            
+
             // Exibe as mensagens com delay
             setTimeout(() => {
                 document.getElementById('message-1').style.display = 'block';
