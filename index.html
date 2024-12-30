@@ -13,10 +13,10 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Alinhamento no topo */
             height: 100vh;
             text-align: center;
-            overflow: hidden;
+            overflow-y: auto; /* Permite o scroll vertical */
             position: relative;
             flex-direction: column;
             gap: 20px;
@@ -32,7 +32,7 @@
             display: none;
             position: relative;
             animation: fadeIn 2s ease-in-out;
-            margin-top: 20px; /* Garantir espaçamento entre as mensagens */
+            margin-top: 20px;
         }
 
         h1 {
@@ -179,6 +179,8 @@
 
             setTimeout(() => {
                 document.getElementById('message-2').style.display = 'block';
+                // Rola a página para a segunda mensagem
+                document.getElementById('message-2').scrollIntoView({ behavior: 'smooth' });
             }, 1500);
         }
     </script>
