@@ -13,32 +13,33 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Alinhamento no topo */
+            align-items: flex-start;
             height: 100vh;
             text-align: center;
-            overflow-y: auto; /* Permite o scroll vertical */
+            overflow-y: auto; /* Permite rolagem vertical */
             position: relative;
-            flex-direction: column;
+            flex-direction: column; 
             gap: 20px;
+            padding-bottom: 20px; /* Espaço extra no fundo */
         }
 
         .container {
             background-color: rgba(255, 255, 255, 0.95);
-            padding: 25px 20px;
+            padding: 30px 20px;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            max-width: 90%;
-            width: 400px;
+            max-width: 400px;
+            width: 90%;
             display: none;
             position: relative;
             animation: fadeIn 2s ease-in-out;
-            margin-top: 20px;
+            margin-bottom: 20px; /* Espaçamento entre as caixas */
         }
 
         h1 {
             color: #e60073;
-            font-size: 28px;
-            margin-bottom: 15px;
+            font-size: 26px;
+            margin-bottom: 20px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
         }
 
@@ -50,31 +51,20 @@
             font-weight: bold;
         }
 
-        /* Responsividade para telas menores */
         @media (max-width: 600px) {
             h1 {
-                font-size: 24px;
+                font-size: 22px;
             }
 
             p {
                 font-size: 16px;
             }
-
-            .container {
-                width: 90%; /* Aumenta a largura da caixa em telas menores */
-                padding: 20px;
-            }
-
-            .gift-box {
-                width: 120px; /* Ajusta o tamanho da caixa do presente */
-                height: 120px;
-            }
         }
 
         .gift-box {
             position: relative;
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
             background: linear-gradient(135deg, #ff4b4b, #ff6f6f);
             border-radius: 10px;
             cursor: pointer;
@@ -161,10 +151,7 @@
     </div>
 
     <div class="container" id="message-2">
-        <p>Adoro nossos gostos estranhos e, principalmente, as fotos zuadas/fofas que você manda 💞. Você me faz rir, e pensar em você me tira um sorriso sincero. Amo ver
-            as fotos dos gatinhos e amo ainda mais te conhecer a cada dia. Te amo muito Isa ❤. E desculpa certas ações e 
-            atitudes minhas, fiquei mt tempo sem essas trocas de msg frequente e contato com os outros, mas to tentando melhorar,
-            por mais que não pareça.</p>
+        <p>Adoro nossos gostos estranhos e, principalmente, as fotos zuadas/fofas que você manda 💞. Você me faz rir, e pensar em você me tira um sorriso sincero. Amo ver as fotos dos gatinhos e amo ainda mais te conhecer a cada dia. Te amo muito Isa ❤. E desculpa certas ações e atitudes minhas, fiquei mt tempo sem essas trocas de msg frequente e contato com os outros, mas to tentando melhorar, por mais que não pareça.</p>
     </div>
 
     <script>
@@ -179,8 +166,6 @@
 
             setTimeout(() => {
                 document.getElementById('message-2').style.display = 'block';
-                // Rola a página para a segunda mensagem
-                document.getElementById('message-2').scrollIntoView({ behavior: 'smooth' });
             }, 1500);
         }
     </script>
